@@ -1,0 +1,48 @@
+{
+  "expo": {
+    "name": "tiny-talkers",
+    "slug": "tiny-talkers",
+    "version": "1.0.0",
+    "scheme": "tiny-talkers",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "dark",
+    "splash": {
+      "image": "./assets/splash-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#0a0618"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSSpeechRecognitionUsageDescription": "Allow Tiny Talkers to recognize speech so we can cheer you on.",
+        "NSMicrophoneUsageDescription": "Allow Tiny Talkers to use the microphone for pronunciation practice."
+      },
+      "bundleIdentifier": "com.mandarvyas.tinytalkers"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#1a0f3c",
+        "foregroundImage": "./assets/android-icon-foreground.png",
+        "backgroundImage": "./assets/android-icon-background.png",
+        "monochromeImage": "./assets/android-icon-monochrome.png"
+      },
+      "permissions": [
+        "android.permission.RECORD_AUDIO"
+      ],
+      "package": "com.mandarvyas.tinytalkers"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      [
+        "expo-speech-recognition",
+        {
+          "microphonePermission": "Allow Tiny Talkers to use the microphone for pronunciation practice.",
+          "speechRecognitionPermission": "Allow Tiny Talkers to recognize speech so we can cheer you on."
+        }
+      ]
+    ]
+  }
+}
