@@ -43,6 +43,11 @@
           "speechRecognitionPermission": "Allow Tiny Talkers to recognize speech so we can cheer you on."
         }
       ]
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "f7fdf0c3-14f0-461c-ae3e-9bd1023c52b4"
+      }
+    }
   }
 }
