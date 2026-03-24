@@ -46,6 +46,8 @@ export type Copy = {
     openButton: string;
     linkErrorTitle: string;
     linkErrorBody: string;
+    notConfiguredTitle: string;
+    notConfiguredBody: string;
   };
 };
 
@@ -94,7 +96,11 @@ export const COPY: Record<AppLanguage, Copy> = {
       body: 'Tell us your name, phone (optional), and what you think. The form opens in your browser.',
       openButton: 'Open feedback form',
       linkErrorTitle: 'Cannot open link',
-      linkErrorBody: 'Paste your Google Form URL in app/screens/FeedbackScreen.tsx',
+      linkErrorBody:
+        'We could not open the browser. Check expo.extra.feedbackFormUrl in app.json.',
+      notConfiguredTitle: 'Form not set up yet',
+      notConfiguredBody:
+        'Add your Google Form link to expo.extra.feedbackFormUrl in app.json (the “Send” link from Google Forms), then rebuild the app.',
     },
   },
   hi: {
@@ -142,7 +148,11 @@ export const COPY: Record<AppLanguage, Copy> = {
       body: 'अपना नाम, फ़ोन (ज़रूरी नहीं) और विचार लिखें। फ़ॉर्म ब्राउज़र में खुलेगा।',
       openButton: 'फ़ॉर्म खोलें',
       linkErrorTitle: 'लिंक नहीं खुल सका',
-      linkErrorBody: 'app/screens/FeedbackScreen.tsx में अपना Google Form लिंक डालें',
+      linkErrorBody:
+        'ब्राउज़र नहीं खुल सका। app.json में expo.extra.feedbackFormUrl जाँचें।',
+      notConfiguredTitle: 'फ़ॉर्म अभी सेट नहीं',
+      notConfiguredBody:
+        'Google Form का “भेजें” लिंक app.json में expo.extra.feedbackFormUrl में डालें, फिर ऐप दोबारा बनाएँ।',
     },
   },
   mr: {
@@ -190,7 +200,11 @@ export const COPY: Record<AppLanguage, Copy> = {
       body: 'नाव, फोन (पर्यायी) आणि मत लिहा. फॉर्म ब्राउझरमध्ये उघडेल.',
       openButton: 'फॉर्म उघडा',
       linkErrorTitle: 'लिंक उघडू शकत नाही',
-      linkErrorBody: 'app/screens/FeedbackScreen.tsx मध्ये Google Form लिंक टाका',
+      linkErrorBody:
+        'ब्राउझर उघडला नाही. app.json मधील expo.extra.feedbackFormUrl तपासा.',
+      notConfiguredTitle: 'फॉर्म अजून सेट नाही',
+      notConfiguredBody:
+        'Google Form चा “पाठवा” लिंक app.json मधील expo.extra.feedbackFormUrl मध्ये टाका, मग अॅप पुन्हा बिल्ड करा.',
     },
   },
 };

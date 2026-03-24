@@ -1,4 +1,5 @@
 import { useHeaderHeight } from '@react-navigation/elements';
+import Constants from 'expo-constants';
 import { Alert, Linking, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Button from '../components/Button';
@@ -8,9 +9,22 @@ import type { FeedbackScreenProps } from '../navigation/types';
 import { useGameStore } from '../store/useGameStore';
 import { colors } from '../theme/colors';
 
-/** Replace with your live Google Form "viewform" or pre-filled link. */
-const GOOGLE_FORM_URL =
-  'https://docs.google.com/forms/d/e/1FAIpQLSdyour-form-id-here/viewform';
+const PLACEHOLDER_SNIPPETS = ['your-form-id-here', '1FAIpQLSdyour'];
+
+function resolveFeedbackFormUrl(): string | null {
+  const raw = Constants.expoConfig?.extra?.feedbackFormUrl;
+  if (typeof raw !== 'string') {
+    return null;
+  }
+  const url = raw.trim();
+  if (!url.startsWith('http://') && !url.startsWith('https://')) {
+    return null;
+  }
+  if (PLACEHOLDER_SNIPPETS.some((s) => url.includes(s))) {
+    return null;
+  }
+  return url;
+}
 
 export default function FeedbackScreen(_props: FeedbackScreenProps) {
   const headerHeight = useHeaderHeight();
@@ -18,10 +32,17 @@ export default function FeedbackScreen(_props: FeedbackScreenProps) {
   const copy = getCopy(appLanguage);
 
   const openForm = async () => {
-    const supported = await Linking.canOpenURL(GOOGLE_FORM_URL);
-    if (supported) {
-      await Linking.openURL(GOOGLE_FORM_URL);
-    } else {
+    const url = resolveFeedbackFormUrl();
+    if (!url) {
+      Alert.alert(
+        copy.feedback.notConfiguredTitle,
+        copy.feedback.notConfiguredBody,
+      );
+      return;
+    }
+    try {
+      await Linking.openURL(url);
+    } catch {
       Alert.alert(copy.feedback.linkErrorTitle, copy.feedback.linkErrorBody);
     }
   };
