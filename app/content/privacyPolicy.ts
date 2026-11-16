@@ -1,0 +1,48 @@
+export const PRIVACY_LAST_UPDATED = 'November 16, 2026';
+export const PRIVACY_CONTACT_EMAIL = 'mandarvyas@gmail.com';
+
+export type PrivacySection = { heading: string; paragraphs: string[] };
+
+/** English policy text (used in-app and in docs/ for store URL). */
+export const PRIVACY_SECTIONS: PrivacySection[] = [
+  {
+    heading: 'Overview',
+    paragraphs: [
+      'Tiny Talkers is a pronunciation and alphabet practice app for young learners. This policy explains what information the app uses and how we handle it.',
+      'The app is designed to keep learning activity on your device. We do not run accounts or sell personal data.',
+    ],
+  },
+  {
+    heading: 'Information on your device',
+    paragraphs: [
+      'The app stores progress locally on your phone or tablet: chosen language, current card position, and which cards earned a star. This data stays in the app’s private storage and is not sent to our servers.',
+    ],
+  },
+  {
+    heading: 'Microphone and speech recognition',
+    paragraphs: [
+      'When you tap “Say it!”, the app uses the device microphone and the operating system’s speech recognition to check pronunciation.',
+      'Speech is processed according to Apple or Google’s speech services on your device. We do not receive or store audio recordings on our own servers.',
+    ],
+  },
+  {
+    heading: 'Feedback form',
+    paragraphs: [
+      'If you open Feedback, you leave the app to complete an optional Google Form in your browser. Anything you submit there is governed by Google’s privacy policy and the form’s description.',
+    ],
+  },
+  {
+    heading: 'Children',
+    paragraphs: [
+      'The app is meant for children to practice with a parent or guardian. We do not knowingly collect personal information from children in the app itself.',
+      'Please supervise microphone use and any feedback submitted through the web form.',
+    ],
+  },
+  {
+    heading: 'Changes and contact',
+    paragraphs: [
+      'We may update this policy as the app changes. The “Last updated” date at the top of this screen will change when we do.',
+      `Questions: ${PRIVACY_CONTACT_EMAIL}`,
+    ],
+  },
+];

@@ -8,7 +8,8 @@ Built with [Expo](https://expo.dev/) and React Native.
 
 - **Multilingual decks** — Separate word lists per language with emoji hints on each card.
 - **Voice** — TTS reads the letter and word; on supported native builds, speech recognition checks pronunciation (with forgiving matching for accents and small mistakes).
-- **Progress** — Stars tracked per language on the home screen.
+- **Progress** — Stars (one per mastered card) and card position saved per language on device.
+- **Privacy** — In-app policy screen; hosted copy in `docs/privacy-policy.md` for store listings.
 - **Deep links** — Custom URL scheme `tiny-talkers://` (see below).
 
 ## Requirements
@@ -68,6 +69,11 @@ Examples:
 - `tiny-talkers://hindi` — Hindi deck link screen
 - `tiny-talkers://marathi` — Marathi deck link screen
 - `tiny-talkers://feedback` — Feedback
+- `tiny-talkers://privacy` — Privacy policy
+
+## Release
+
+See [docs/RELEASE_CHECKLIST.md](docs/RELEASE_CHECKLIST.md) before shipping to the stores.
 
 ## License
 

@@ -6,14 +6,15 @@ import { starGoalCount } from '../data/words';
 import { APP_LANGUAGES, LANGUAGE_LABELS } from '../i18n/config';
 import { getCopy } from '../i18n/copy';
 import type { HomeScreenProps } from '../navigation/types';
-import { useGameStore } from '../store/useGameStore';
+import { starCountForLanguage, useGameStore } from '../store/useGameStore';
 import { colors } from '../theme/colors';
 
 const PREVIEW_OUTLINE_STARS = 8;
 
 export default function HomeScreen({ navigation }: HomeScreenProps) {
   const appLanguage = useGameStore((s) => s.appLanguage);
-  const stars = useGameStore((s) => s.starsByLanguage[s.appLanguage]);
+  const masteredByLanguage = useGameStore((s) => s.masteredByLanguage);
+  const stars = starCountForLanguage(masteredByLanguage, appLanguage);
   const setAppLanguage = useGameStore((s) => s.setAppLanguage);
   const copy = getCopy(appLanguage);
   const goalCount = starGoalCount(appLanguage);
@@ -73,13 +74,21 @@ export default function HomeScreen({ navigation }: HomeScreenProps) {
             style={styles.playBtn}
           />
 
-          <Pressable
-            onPress={() => navigation.navigate('Feedback')}
-            hitSlop={8}
-            style={styles.feedbackLinkWrap}
-          >
-            <Text style={styles.parentLink}>{copy.home.feedback}</Text>
-          </Pressable>
+          <View style={styles.footerLinks}>
+            <Pressable
+              onPress={() => navigation.navigate('Feedback')}
+              hitSlop={8}
+            >
+              <Text style={styles.parentLink}>{copy.home.feedback}</Text>
+            </Pressable>
+            <Text style={styles.footerSep}>·</Text>
+            <Pressable
+              onPress={() => navigation.navigate('Privacy')}
+              hitSlop={8}
+            >
+              <Text style={styles.parentLink}>{copy.home.privacy}</Text>
+            </Pressable>
+          </View>
         </View>
       </SafeAreaView>
     </ScreenGradient>
@@ -201,8 +210,15 @@ const styles = StyleSheet.create({
   playBtn: {
     paddingVertical: 4,
   },
-  feedbackLinkWrap: {
+  footerLinks: {
     marginTop: 16,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 10,
+  },
+  footerSep: {
+    fontSize: 13,
+    color: colors.textMuted,
   },
   parentLink: {
     fontSize: 13,

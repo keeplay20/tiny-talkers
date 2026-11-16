@@ -12,6 +12,7 @@ export type Copy = {
     starsKeepGoing: string;
     play: string;
     feedback: string;
+    privacy: string;
   };
   game: {
     cardConnector: string;
@@ -27,6 +28,8 @@ export type Copy = {
     noVoiceBodyBefore: string;
     noVoiceBodyMono: string;
     noVoiceBodyAfter: string;
+    /** Shown in release builds when speech native module is missing. */
+    noVoiceBodyRelease: string;
     permTitle: string;
     permBody: string;
     alertNextWord: string;
@@ -49,6 +52,11 @@ export type Copy = {
     notConfiguredTitle: string;
     notConfiguredBody: string;
   };
+  privacy: {
+    title: string;
+    lastUpdated: string;
+    openWeb: string;
+  };
 };
 
 export const COPY: Record<AppLanguage, Copy> = {
@@ -62,6 +70,7 @@ export const COPY: Record<AppLanguage, Copy> = {
       starsKeepGoing: 'Keep earning stars!',
       play: 'Play',
       feedback: 'Feedback',
+      privacy: 'Privacy',
     },
     game: {
       cardConnector: 'for',
@@ -78,6 +87,8 @@ export const COPY: Record<AppLanguage, Copy> = {
         'This preview can’t hear you. A grown-up can open the real app with ',
       noVoiceBodyMono: ' or ',
       noVoiceBodyAfter: '. You can still tap Listen!',
+      noVoiceBodyRelease:
+        'Speaking check isn’t available on this device. You can still tap Listen and practice aloud.',
       permTitle: 'Almost!',
       permBody: 'We need the microphone to hear you.',
       alertNextWord: 'Next word!',
@@ -102,6 +113,11 @@ export const COPY: Record<AppLanguage, Copy> = {
       notConfiguredBody:
         'Add your Google Form link to expo.extra.feedbackFormUrl in app.json (the “Send” link from Google Forms), then rebuild the app.',
     },
+    privacy: {
+      title: 'Privacy policy',
+      lastUpdated: 'Last updated',
+      openWeb: 'Open web version',
+    },
   },
   hi: {
     home: {
@@ -113,6 +129,7 @@ export const COPY: Record<AppLanguage, Copy> = {
       starsKeepGoing: 'और सितारे कमाओ!',
       play: 'खेलें',
       feedback: 'प्रतिक्रिया',
+      privacy: 'गोपनीयता',
     },
     game: {
       cardConnector: 'से',
@@ -130,6 +147,8 @@ export const COPY: Record<AppLanguage, Copy> = {
         'इस झलक में हम आपकी आवाज़ नहीं सुन सकते। बड़े असली ऐप के लिए ',
       noVoiceBodyMono: ' या ',
       noVoiceBodyAfter: ' चला सकते हैं। “सुनो” दबाओ!',
+      noVoiceBodyRelease:
+        'इस डिवाइस पर बोलने की जाँच उपलब्ध नहीं है। आप फिर भी “सुनो” दबाकर अभ्यास कर सकते हैं।',
       permTitle: 'लगभग तैयार!',
       permBody: 'आपकी आवाज़ सुनने के लिए माइक की ज़रूरत है।',
       alertNextWord: 'अगला शब्द!',
@@ -154,6 +173,11 @@ export const COPY: Record<AppLanguage, Copy> = {
       notConfiguredBody:
         'Google Form का “भेजें” लिंक app.json में expo.extra.feedbackFormUrl में डालें, फिर ऐप दोबारा बनाएँ।',
     },
+    privacy: {
+      title: 'गोपनीयता नीति',
+      lastUpdated: 'अंतिम अपडेट',
+      openWeb: 'वेब संस्करण खोलें',
+    },
   },
   mr: {
     home: {
@@ -165,6 +189,7 @@ export const COPY: Record<AppLanguage, Copy> = {
       starsKeepGoing: 'आणखी तारे मिळवा!',
       play: 'खेळा',
       feedback: 'अभिप्राय',
+      privacy: 'गोपनीयता',
     },
     game: {
       cardConnector: 'आणि',
@@ -182,6 +207,8 @@ export const COPY: Record<AppLanguage, Copy> = {
         'या झलकीत आम्ही ऐकू शकत नाही. मोठ्यांनी खरी अॅपसाठी ',
       noVoiceBodyMono: ' किंवा ',
       noVoiceBodyAfter: ' चालवावे. “ऐका” दाबा!',
+      noVoiceBodyRelease:
+        'या डिव्हाइसवर बोलण्याची तपासणी उपलब्ध नाही. तुम्ही “ऐका” दाबून सराव करू शकता.',
       permTitle: 'जवळजवळ!',
       permBody: 'आम्हाला ऐकण्यासाठी मायक्रोफोन हवा.',
       alertNextWord: 'पुढचा शब्द!',
@@ -205,6 +232,11 @@ export const COPY: Record<AppLanguage, Copy> = {
       notConfiguredTitle: 'फॉर्म अजून सेट नाही',
       notConfiguredBody:
         'Google Form चा “पाठवा” लिंक app.json मधील expo.extra.feedbackFormUrl मध्ये टाका, मग अॅप पुन्हा बिल्ड करा.',
+    },
+    privacy: {
+      title: 'गोपनीयता धोरण',
+      lastUpdated: 'शेवटचे अद्यतन',
+      openWeb: 'वेब आवृत्ती उघडा',
     },
   },
 };

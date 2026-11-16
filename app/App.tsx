@@ -15,6 +15,8 @@ import {
   MarathiDeckLinkScreen,
 } from './screens/DeckLinkScreen';
 import HomeScreen from './screens/HomeScreen';
+import PrivacyScreen from './screens/PrivacyScreen';
+import StoreHydrationGate from './components/StoreHydrationGate';
 import { colors } from './theme/colors';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -57,47 +59,55 @@ const linking = {
       Hindi: 'hindi',
       Marathi: 'marathi',
       Feedback: 'feedback',
+      Privacy: 'privacy',
     },
   },
 };
 
 export default function App() {
   return (
-    <SafeAreaProvider>
-      <NavigationContainer theme={navTheme} linking={linking}>
-        <StatusBar style="light" />
-        <Stack.Navigator
-          screenOptions={{
-            contentStyle: { backgroundColor: 'transparent' },
-          }}
-        >
-          <Stack.Screen
-            name="Home"
-            component={HomeScreen}
-            options={{ headerShown: false }}
-          />
-          <Stack.Screen
-            name="Game"
-            component={GameScreen}
-            options={({ navigation }) => childScreenHeader(navigation)}
-          />
-          <Stack.Screen
-            name="Hindi"
-            component={HindiDeckLinkScreen}
-            options={{ headerShown: false }}
-          />
-          <Stack.Screen
-            name="Marathi"
-            component={MarathiDeckLinkScreen}
-            options={{ headerShown: false }}
-          />
-          <Stack.Screen
-            name="Feedback"
-            component={FeedbackScreen}
-            options={({ navigation }) => childScreenHeader(navigation)}
-          />
-        </Stack.Navigator>
-      </NavigationContainer>
-    </SafeAreaProvider>
+    <StoreHydrationGate>
+      <SafeAreaProvider>
+        <NavigationContainer theme={navTheme} linking={linking}>
+          <StatusBar style="light" />
+          <Stack.Navigator
+            screenOptions={{
+              contentStyle: { backgroundColor: 'transparent' },
+            }}
+          >
+            <Stack.Screen
+              name="Home"
+              component={HomeScreen}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="Game"
+              component={GameScreen}
+              options={({ navigation }) => childScreenHeader(navigation)}
+            />
+            <Stack.Screen
+              name="Hindi"
+              component={HindiDeckLinkScreen}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="Marathi"
+              component={MarathiDeckLinkScreen}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="Feedback"
+              component={FeedbackScreen}
+              options={({ navigation }) => childScreenHeader(navigation)}
+            />
+            <Stack.Screen
+              name="Privacy"
+              component={PrivacyScreen}
+              options={({ navigation }) => childScreenHeader(navigation)}
+            />
+          </Stack.Navigator>
+        </NavigationContainer>
+      </SafeAreaProvider>
+    </StoreHydrationGate>
   );
 }

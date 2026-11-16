@@ -22,7 +22,7 @@ import {
   startListeningForWord,
   stopListening,
 } from "../services/speechService";
-import { useGameStore } from "../store/useGameStore";
+import { useCurrentWordIndex, useGameStore } from "../store/useGameStore";
 import { colors } from "../theme/colors";
 
 export default function GameScreen(_props: GameScreenProps) {
@@ -31,7 +31,7 @@ export default function GameScreen(_props: GameScreenProps) {
   const appLanguage = useGameStore((s) => s.appLanguage);
   const copy = getCopy(appLanguage);
 
-  const wordIndex = useGameStore((s) => s.wordIndex);
+  const wordIndex = useCurrentWordIndex();
   const deck = deckForLanguage(appLanguage);
   const item = deck[wordIndex]!;
 
@@ -40,13 +40,16 @@ export default function GameScreen(_props: GameScreenProps) {
 
   const setTranscript = useGameStore((s) => s.setTranscript);
   const setLastResult = useGameStore((s) => s.setLastResult);
-  const addStar = useGameStore((s) => s.addStar);
+  const awardStarForCurrentCard = useGameStore(
+    (s) => s.awardStarForCurrentCard,
+  );
   const nextWord = useGameStore((s) => s.nextWord);
   const prevWord = useGameStore((s) => s.prevWord);
 
   const [listening, setListening] = useState(false);
   const autoCheckedRef = useRef(false);
   const voiceAvailable = isSpeechRecognitionNativeAvailable();
+  const showSpeechDevHint = process.env.NODE_ENV === "development";
 
   const runCheck = useCallback(
     (spoken: string) => {
@@ -56,7 +59,7 @@ export default function GameScreen(_props: GameScreenProps) {
         appLanguage,
       );
       setLastResult(correct);
-      if (correct) addStar();
+      if (correct) awardStarForCurrentCard();
       Alert.alert(title, message, [
         {
           text: correct ? copy.game.alertNextWord : copy.game.alertTryAgain,
@@ -67,7 +70,7 @@ export default function GameScreen(_props: GameScreenProps) {
       ]);
     },
     [
-      addStar,
+      awardStarForCurrentCard,
       appLanguage,
       copy.game.alertNextWord,
       copy.game.alertTryAgain,
@@ -172,13 +175,19 @@ export default function GameScreen(_props: GameScreenProps) {
           {!voiceAvailable ? (
             <View style={styles.noVoiceBox}>
               <Text style={styles.noVoiceTitle}>{copy.game.noVoiceTitle}</Text>
-              <Text style={styles.noVoiceBody}>
-                {copy.game.noVoiceBodyBefore}
-                <Text style={styles.noVoiceMono}>npx expo run:ios</Text>
-                {copy.game.noVoiceBodyMono}
-                <Text style={styles.noVoiceMono}>npx expo run:android</Text>
-                {copy.game.noVoiceBodyAfter}
-              </Text>
+              {showSpeechDevHint ? (
+                <Text style={styles.noVoiceBody}>
+                  {copy.game.noVoiceBodyBefore}
+                  <Text style={styles.noVoiceMono}>npx expo run:ios</Text>
+                  {copy.game.noVoiceBodyMono}
+                  <Text style={styles.noVoiceMono}>npx expo run:android</Text>
+                  {copy.game.noVoiceBodyAfter}
+                </Text>
+              ) : (
+                <Text style={styles.noVoiceBody}>
+                  {copy.game.noVoiceBodyRelease}
+                </Text>
+              )}
             </View>
           ) : null}
 

@@ -30,7 +30,8 @@
       "permissions": [
         "android.permission.RECORD_AUDIO"
       ],
-      "package": "com.mandarvyas.tinytalkers"
+      "package": "com.mandarvyas.tinytalkers",
+      "privacyPolicy": "https://raw.githubusercontent.com/keeplay20/tiny-talkers/main/docs/privacy-policy.md"
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -48,7 +49,8 @@
       "eas": {
         "projectId": "f7fdf0c3-14f0-461c-ae3e-9bd1023c52b4"
       },
-      "feedbackFormUrl": "https://docs.google.com/forms/d/e/1FAIpQLSd8_LfNG_WEIWQSeyd4IlLugLh3ZNsNHAyHDIyKm_Bou6Nqhg/viewform"
+      "feedbackFormUrl": "https://docs.google.com/forms/d/e/1FAIpQLSd8_LfNG_WEIWQSeyd4IlLugLh3ZNsNHAyHDIyKm_Bou6Nqhg/viewform",
+      "privacyPolicyUrl": "https://raw.githubusercontent.com/keeplay20/tiny-talkers/main/docs/privacy-policy.md"
     }
   }
 }

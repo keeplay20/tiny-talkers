@@ -9,8 +9,10 @@ export type RootStackParamList = {
   /** Sets Marathi + देवनागरी deck, then replaces with Game. Path: `marathi`. */
   Marathi: undefined;
   Feedback: undefined;
+  Privacy: undefined;
 };
 
 export type HomeScreenProps = NativeStackScreenProps<RootStackParamList, 'Home'>;
 export type GameScreenProps = NativeStackScreenProps<RootStackParamList, 'Game'>;
 export type FeedbackScreenProps = NativeStackScreenProps<RootStackParamList, 'Feedback'>;
+export type PrivacyScreenProps = NativeStackScreenProps<RootStackParamList, 'Privacy'>;
