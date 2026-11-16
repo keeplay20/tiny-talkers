@@ -49,6 +49,8 @@ npm run android
 | `npm run ios`  | Build and run on iOS     |
 | `npm run android` | Build and run on Android |
 | `npm run web`  | Start for web            |
+| `npm run build:all` | EAS production builds (AAB + IPA) |
+| `npm run submit:ios` / `submit:android` | Submit latest build to stores |
 
 ## Project layout
 
@@ -73,7 +75,9 @@ Examples:
 
 ## Release
 
-See [docs/RELEASE_CHECKLIST.md](docs/RELEASE_CHECKLIST.md) before shipping to the stores.
+1. Enable **GitHub Pages** (`main` → `/docs`) so the [privacy page](docs/privacy.html) is public.
+2. Follow [docs/STORE_RELEASE.md](docs/STORE_RELEASE.md) (`npm run build:all`, device QA, `npm run submit:ios` / `submit:android`).
+3. Check [docs/RELEASE_CHECKLIST.md](docs/RELEASE_CHECKLIST.md) before you hit **Publish**.
 
 ## License
 

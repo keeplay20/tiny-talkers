@@ -32,4 +32,6 @@ Please supervise microphone use and any feedback submitted through the web form.
 
 We may update this policy as the app changes. The “Last updated” date will change when we do.
 
-Questions: mandarvyas@gmail.com
+Questions: mandar.vyas20@proton.me
+
+Web: https://keeplay20.github.io/tiny-talkers/privacy.html

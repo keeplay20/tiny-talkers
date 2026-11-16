@@ -1,6 +1,12 @@
 # Tiny Talkers v1 release checklist
 
-Use this before submitting to App Store / Google Play.
+Use this before submitting to App Store / Google Play. Full ship guide: [STORE_RELEASE.md](./STORE_RELEASE.md).
+
+## Prerequisites
+
+- [ ] GitHub Pages enabled (`main` → `/docs`) and [privacy.html](./privacy.html) loads in a browser
+- [ ] Store listing draft from [STORE_LISTING.md](./STORE_LISTING.md)
+- [ ] Data safety answers from [DATA_SAFETY.md](./DATA_SAFETY.md)
 
 ## Build
 
@@ -26,7 +32,7 @@ Use this before submitting to App Store / Google Play.
 ## Store metadata
 
 - [ ] Privacy policy URL (same as `expo.extra.privacyPolicyUrl` in `app.json`):
-  `https://raw.githubusercontent.com/keeplay20/tiny-talkers/main/docs/privacy-policy.md`
+  `https://keeplay20.github.io/tiny-talkers/privacy.html`
 - [ ] Age rating / Families form: no account, local progress, optional third-party feedback form
 - [ ] Screenshots and short description (“speaking practice”, not stories)
 

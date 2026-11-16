@@ -1,9 +1,11 @@
 {
   "expo": {
-    "name": "tiny-talkers",
+    "name": "Tiny Talkers",
     "slug": "tiny-talkers",
     "version": "1.0.0",
+    "description": "Alphabet and speaking practice for kids in English, Hindi, and Marathi.",
     "scheme": "tiny-talkers",
+    "primaryColor": "#a78bfa",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "dark",
@@ -14,11 +16,13 @@
     },
     "ios": {
       "supportsTablet": true,
+      "bundleIdentifier": "com.mandarvyas.tinytalkers",
       "infoPlist": {
+        "CFBundleDisplayName": "Tiny Talkers",
         "NSSpeechRecognitionUsageDescription": "Allow Tiny Talkers to recognize speech so we can cheer you on.",
-        "NSMicrophoneUsageDescription": "Allow Tiny Talkers to use the microphone for pronunciation practice."
-      },
-      "bundleIdentifier": "com.mandarvyas.tinytalkers"
+        "NSMicrophoneUsageDescription": "Allow Tiny Talkers to use the microphone for pronunciation practice.",
+        "ITSAppUsesNonExemptEncryption": false
+      }
     },
     "android": {
       "adaptiveIcon": {
@@ -31,7 +35,8 @@
         "android.permission.RECORD_AUDIO"
       ],
       "package": "com.mandarvyas.tinytalkers",
-      "privacyPolicy": "https://raw.githubusercontent.com/keeplay20/tiny-talkers/main/docs/privacy-policy.md"
+      "versionCode": 1,
+      "privacyPolicy": "https://keeplay20.github.io/tiny-talkers/privacy.html"
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -50,7 +55,7 @@
         "projectId": "f7fdf0c3-14f0-461c-ae3e-9bd1023c52b4"
       },
       "feedbackFormUrl": "https://docs.google.com/forms/d/e/1FAIpQLSd8_LfNG_WEIWQSeyd4IlLugLh3ZNsNHAyHDIyKm_Bou6Nqhg/viewform",
-      "privacyPolicyUrl": "https://raw.githubusercontent.com/keeplay20/tiny-talkers/main/docs/privacy-policy.md"
+      "privacyPolicyUrl": "https://keeplay20.github.io/tiny-talkers/privacy.html"
     }
   }
 }
